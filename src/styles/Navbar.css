@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    min-width: 300px;
+    max-width: 100%;
+}
+
+
+header{
+    background-color: rgb(32, 25, 25);
+    color:white;
+    display: flex;
+    height: 70px;
+    width: calc(100% - 22px);
+    align-items: center;
+    padding: 0px 10px;
+    border: 1px solid white;
+    position: relative;
+}
+
+.btn{
+    padding:5px;
+    background-color: rgb(32, 25, 25);
+    color: white;
+    border-radius: 2px;
+    margin: 0px 5px;
+}
+
+.btn:hover{
+    color: blue;
+}
+
+nav{
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background-color:rgb(32, 25, 25);
+    height: 100vh;
+    width: 200px;
+    color: white;
+    justify-content: flex-start;
+    border: .5px solid white;
+    z-index: 1000;
+}
+
+nav ul{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+
+nav ul li{
+    list-style: none;
+    margin: 10px 0px;
+
+
+}
+nav ul li:hover{
+    color: blue;
+}
+
+.navIcons{
+    padding: 10px;
+    display: inline;
+}
+
+.webTitle{
+    display: inline;
+    padding: 0px 10px;
+    margin: 0px 20px;
+    font-family: 'Allison', cursive;
+    font-size: 40px;
+}
+
+.webTitle:hover{
+   color: blue;
+}
+
+.hidden{
+    display: none;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: -1;
+    width: 100vw;
+}
+
+img {
+    background-size:contain;
+    height: auto;
+    width: 100vw;
+    margin: 10px 10vw 10px 0px;
+}
+
+
+
+.grid-container{
+    display:grid;
+    position:relative;
+    bottom: 0%;
+    width: 100%;
+    grid-template-columns: auto;
+    background-color:black;
+    grid-gap: .1vw 0vw;
+    z-index: -1;
+    font-size: 14px;
+}
+
+.grid-ele{
+    color: white;
+    margin: 0px 0px;
+
+}
+
+@keyframes HeartJump {
+    from{
+     font-size:24px
+    }
+  
+    to{
+      font-size:28px
+    }
+  
+  }
+
+.red{
+    color: red;
+    animation-name:HeartJump;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-duration: 2s;
+    font-size: 24px;
+
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    width: 90vw;
+    align-items: center;
+    /* overflow: hidden;  */
+}
+
+.quoteContainer{
+    background-image: url("../images//quoteBackground.jpg");
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+}
+
+.MessageContainer{
+    background-image: url("../images//messageBackground.jpg");
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 55vh;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size:cover;
+    margin: 20px 0px;
+}
+
+.messageTxt{
+    display: flex;
+    color: brown;
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+}
+
+.quoteTitle{
+    font-family: 'Allison', cursive;
+    font-size: 50px;
+    color:tan;
+    text-decoration: underline;
+}
+
+
+.messageTitle{
+    font-family: 'Allison', cursive;
+    font-size: 50px;
+    color:darkblue;
+    text-decoration: underline;
+}
+
+.quoteAuthor{
+    font-family: 'Allison', cursive;
+    font-size: 35px;
+    color:tan;
+}
+
+.quoteTxt{
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    color:white;
+
+}
+
+.SliderContainer{
+    position: relative;
+    width: 90vw;
+    margin: 5px 0px;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+
+.classNavbar{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+footer{
+    display: flex;
+    position: relative;
+    left: 0%;
+    width: 100%;
+}
+
+@media only screen and (max-width: 500px) {
+    img{
+        height:25vh;
+    }
+   
+}
+
+

@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+.QuizCreaterDetails{
+    display: grid;
+    grid-template-columns: auto;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    grid-gap: 10px;
+    border-radius: 2%;
+    padding: 15px 40px 15px 15px;
+    background-color: whitesmoke;
+}
+
+.lbl{
+    padding: 0px 10px;
+    font-family: 'Dancing Script', cursive;
+    color: maroon;
+    font-size: 30px;
+    flex-grow: 1;
+}
+input{
+    width: 90%;
+    height: 25px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin: 10px 10px;
+    border-top-style: none;
+    border-right-style: groove;
+    border-left-style: none;
+    border-bottom-style: groove;
+    outline: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+}
+select{
+    width: 95%;
+    height: 35px;
+    padding: 2px 10px;
+    resize: vertical;
+    border-radius: 20px;
+    margin: 10px 10px;
+    background-color: white;
+    border-top-style: none;
+    border-right-style: groove;
+    border-left-style: none;
+    border-bottom-style: groove;
+    outline: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    
+}
+.btnsubmit{
+    padding: 12px;
+    margin: 10px;
+    background-color: palevioletred;
+    color: white;
+    border-radius: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    
+}
+
+.MessageContainer{
+    height: 33vh;
+}
+
+.mainC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100vw; 
+}
+
+.questionContainer{
+    background-color: rgb(252, 212, 218);
+    margin: 20px 10px;
+    padding: 20px 20px;
+    width: 40%;
+}
+
+.Questionscontainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px;
+    border: 1px solid dimgray;
+    width: 100%;
+    font-family: 'Dancing Script', cursive;
+}
+form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px;
+    width: 100%;
+}
+
+.questionNo,.creatorMessage{
+    font-size: 25px;
+    font-family: 'Dancing Script', cursive;
+    text-decoration:underline;
+    color: maroon;
+}
+
+.attemptquestionNo{
+    font-size: 25px;
+    font-family: 'Dancing Script', cursive;
+    color: maroon;
+}
+.attemptoptions {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px 20px;
+    justify-content:center;
+    padding: 30px 0px;
+
+    
+}
+
+
+.QuizUrl{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    background-color:whitesmoke;
+    color:black;
+    font-style: italic;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px;
+    margin: 40px 40px;
+    border-top-style: none;
+    border-right-style: groove;
+    border-left-style: none;
+    border-bottom-style: groove;
+    
+
+}
+
+.quoteTitleurl{
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    color:tan;
+    text-decoration: underline;
+}
+.quoteTxturl{
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    color: white;
+    margin: 10px 0px;
+    font-size:25px;
+}
+.Options{
+    font-size: 25px;
+}
+
+.copybtn{
+    background-color: transparent;
+    border-radius: 30px;
+    padding: 5px 5px;
+    margin: 10px 0px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    color: white;
+    border-top-style: groove;
+    border-right-style: groove;
+    border-left-style: groove;
+    border-bottom-style: groove;
+}
+
+.CongoMsg{
+    font-family: 'Dancing Script', cursive;
+    font-size: 90px;
+    animation-name: congo-img;
+    animation-iteration-count: infinite;
+    animation-duration:2s;
+    animation-direction: alternate-reverse;
+    font-size: 40px;
+    color: red;
+    padding:20px;
+    margin: 20px;
+}
+
+#customers {
+    border-collapse: collapse;
+    width: 200%;
+    justify-content: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: pink;
+    color: maroon;
+  }
+  .rankTable
+  {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35vw;
+      flex-direction: column;
+  }
+  .rankTableHeading{
+    font-size: 35px;
+    font-family: 'Dancing Script', cursive;
+    text-decoration:underline;
+    color: maroon;
+  }
+
+  .rankMsgborder{
+      width: fit-content;
+      height:fit-content;
+      padding: 30px;
+      background-color: lightblue;
+      margin: 30px;
+  }
+
+@keyframes congo-img {
+    from{
+     font-size:40px;
+     color: red;
+    }
+  
+    to{
+      font-size:32px;
+      color: black;
+    }
+  
+  }
+
+
+
+@media only screen and (max-width: 700px) {
+    .questionContainer{
+        width:80%;
+    }
+    .QuizCreaterDetails{
+        width: 80%; position: relative;
+        justify-content: center;
+        align-items: center;
+    }
+    .quoteTxturl{
+        font-size:3.5vw;
+    }
+    
+   
+}
+
+

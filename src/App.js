@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from "./Components/Home";
+import CreateYourOwnQuiz from "./Components/CreateYourOwnQuiz";
+import QuizUrl from "./Components/QuizUrl";
+import GetUserQuiz from "./Components/GetUserQuiz";
+import {Route} from 'react-router-dom'; 
+
+ 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route exact path='/' component={Home}></Route> 
+      <Route exact path='/Home' component={Home}></Route> 
+      <Route exact path='/Quiz/CreateQuiz' component={CreateYourOwnQuiz}></Route> 
+      <Route exact path='/Quiz/GetQuizUrl' component={QuizUrl}></Route> 
+      <Route exact path='/Quiz/GiveQuizTest/:CreatorName/:QuizUniqueIdentifier' component={GetUserQuiz}></Route>
+
+ 
     </div>
   );
 }
