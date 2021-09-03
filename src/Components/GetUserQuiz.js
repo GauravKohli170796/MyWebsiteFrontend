@@ -76,7 +76,7 @@ function GetUserQuiz({ match }) {
 
                     </div>}
 
-                    {IsAllowedToAttemptQuiz && UserJsonQuestions.length > 0 && (UserJsonQuestions.length===CurrentQuestion) &&<div className="rankTable">
+                    {UserJsonQuestions.length > 0 && Array.isArray(AttemptedUserJsonArray) && AttemptedUserJsonArray.length>0 &&<div className="rankTable">
                     <p className="rankTableHeading">Leaderboard for this Quiz</p>
                         <table id="customers">
                             <tr>{renderTableHeader()}</tr>
@@ -107,7 +107,22 @@ function GetUserQuiz({ match }) {
                         {
                             setCurrentQuestionAns("");
                             setCurrentQuestion(CurrentQuestion + 1);
-                            console.log("No of correct questions "+CorrectQuestion);
+                            axios.post(`${BACKEND_URL}Quiz/SubmitAttempterScore`,{QuizSubmitterName:QuizAttempter,QuizUniqueIdentifier:match.params.QuizUniqueIdentifier,QuizCreatorName:match.params.CreatorName,QuizSubmitterScore:CorrectQuestion})
+                            .then(response => {
+                                if (response.data.ErrCode === 0) {
+                                    setAttemptedUserJsonArray(response.data.AttempterUsersArrayJson);
+                                }
+                                else if (response.data.ErrCode === 1) {
+                                    toast.info(response.data.ResMsg);
+                                }
+                                else {
+                                    toast.error(response.data.ResMsg);
+                                }
+                            })
+                            .catch(err => {
+                                    toast.error(err.message);
+                                })
+                            
                         }
                      }}>
                     
@@ -162,7 +177,7 @@ function GetUserQuiz({ match }) {
 
     function renderTableHeader()
     {
-        let Headers=["RANK","NAME","SCORE"];
+        let Headers=["RANK","NAME","SCORE","QUIZ ATTEMPT DATE"];
       return Headers.map((header,index)=>{
           return <th key={index}>{header}</th>
 
@@ -176,6 +191,7 @@ function GetUserQuiz({ match }) {
                    <td>{index+1}</td>
                    <td>{usrDetails.QUIZ_SUBMITTER_NAME}</td>
                    <td>{usrDetails.QUIZ_SUBMITTER_SCORE}</td>
+                   <td>{usrDetails.QUIZ_CREATED_DATE_TIME}</td>
                   </tr>
        })
     }

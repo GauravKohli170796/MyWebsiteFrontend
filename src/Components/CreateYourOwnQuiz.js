@@ -51,7 +51,7 @@ function CreateYourOwnQuiz() {
                             <lable className="lbl">Enter Your Name</lable>
                             <input type="text" placeholder="e.g Gaureesha" name="Creator Name" value={QuizCreator} onChange={(e) => { setQuizCreator(e.target.value) }} autocomplete="off" required />
                             <lable className="lbl">Enter no. of questions you would ask</lable>
-                            <input type="number" placeholder="Any value between 5 and 10"max="10" min="2" name="Creator Name" value={QuizQuestionNo} onChange={(e) => { setQuizQuestionNo(parseInt(e.target.value)) }} autocomplete="off" required />
+                            <input type="number" placeholder="Any value between 2 and 10"max="10" min="2" name="Creator Name" value={QuizQuestionNo} onChange={(e) => { setQuizQuestionNo(parseInt(e.target.value)) }} autocomplete="off" required />
                             <button type="submit" className="btnsubmit" >Crete Quiz</button>
                             </form>
 

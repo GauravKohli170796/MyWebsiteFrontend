@@ -7,7 +7,7 @@ module.exports =Object.freeze({
   ],
   CreateQuizArray:[
     "You can create your own quiz.",
-    "You can customise any no of question between 5 to 10 with your own options.",
+    "You can customise any no of question between 2 to 10 with your own options.",
     "You can share that quiz with your friends via url.",
     "You can get the detailed result of your friends responses.",
     "You can know who knows you better by looking at each friend score."
