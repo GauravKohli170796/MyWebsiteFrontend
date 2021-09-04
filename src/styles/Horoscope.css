@@ -1,0 +1,44 @@
+.twoDaysHoroscopeMain
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+.horoscopeformContainer
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 20px 20px;
+    background-color: lightgrey;
+    margin: 20px 5px;
+}
+
+.horoscopeResultContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 5px;
+    width: 80vw;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: black;
+    color: white;
+    font-size: small;
+  }
+  #customers {
+    font-size:large;
+  }
+  
+  #customers td{
+    border: 1px solid black;
+    padding: 8px;
+  }
+
+  #customers th {
+    border: 1px solid white;
+    padding: 8px; 
+  }
