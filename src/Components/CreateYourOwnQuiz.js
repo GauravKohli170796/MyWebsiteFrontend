@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState,useEffect,useRef} from 'react';
 import SideNavbar from "./SideNavbar";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -22,10 +22,23 @@ function CreateYourOwnQuiz() {
     const [QuizQuestionNo,setQuizQuestionNo]=useState();
     const [QuizQuestion,setQuizQuestion]=useState(QuizQuestions);
     const history = useHistory({});
+    let navRef=useRef(null);
+    let handler=(event)=>{
+        if(!navRef.current.contains(event.target))
+        {
+            setbNavbarShow(false);
+        }
+    }
+    useEffect(() => {
+       document.addEventListener("scroll",handler);
+       return ()=>{
+           document.removeEventListener("scroll",handler);
+       }
+    }, [navRef])
     return (
         <div className="QuizCls">
             <Header bNavbarShow={bNavbarShow} setbNavbarShow={setbNavbarShow} ></Header>
-            <SideNavbar bNavbarShow={bNavbarShow}></SideNavbar>
+           <div ref={navRef}><SideNavbar bNavbarShow={bNavbarShow}></SideNavbar></div> 
 
             <div className="mainC">
 

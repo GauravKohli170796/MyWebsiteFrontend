@@ -56,6 +56,18 @@ nav ul{
     margin-top: 20px;
 }
 
+.link{
+    text-decoration: none;
+    color: white;
+}
+.link:hover{
+  color: blue;
+}
+
+.active{
+    color:lightblue
+}
+
 
 nav ul li{
     list-style: none;

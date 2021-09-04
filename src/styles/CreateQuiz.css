@@ -192,10 +192,10 @@ form{
 
 #customers {
     border-collapse: collapse;
-    width: 200%;
+    width: 100%;
     justify-content: center;
     font-family: 'Dancing Script', cursive;
-    font-size: 25px;
+    font-size:medium;
   }
   
   #customers td, #customers th {
@@ -212,20 +212,23 @@ form{
     padding-bottom: 12px;
     background-color: pink;
     color: maroon;
+    font-size: small;
   }
   .rankTable
   {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 35vw;
+      width: 50vw;
       flex-direction: column;
+      margin: 20px;
   }
   .rankTableHeading{
-    font-size: 35px;
+    font-size:x-large;
     font-family: 'Dancing Script', cursive;
     text-decoration:underline;
     color: maroon;
+    margin: 10px;
   }
 
   .rankMsgborder{

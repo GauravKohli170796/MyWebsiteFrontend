@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect,useRef} from 'react';
 import Header from './Header';
 import SideNavbar from './SideNavbar';
 import Footer from './Footer';
@@ -17,6 +17,19 @@ import 'react-toastify/dist/ReactToastify.css';
 function QuizUrl() {
     const [bNavbarShow, setbNavbarShow] = useState(false);
     const history = useHistory({});
+    let navRef=useRef(null);
+    let handler=(event)=>{
+        if(!navRef.current.contains(event.target))
+        {
+            setbNavbarShow(false);
+        }
+    }
+    useEffect(() => {
+       document.addEventListener("scroll",handler);
+       return ()=>{
+           document.removeEventListener("scroll",handler);
+       }
+    }, [navRef])
     var QuizUrl=" ";
     if(history.location.state && history.location.state.CretorName && history.location.state.UniqueIdentifier)
     {
@@ -29,7 +42,7 @@ function QuizUrl() {
     return (
         <div className="QuizUrlContainer">
             <Header bNavbarShow={bNavbarShow} setbNavbarShow={setbNavbarShow} ></Header>
-            <SideNavbar bNavbarShow={bNavbarShow}></SideNavbar>
+            <div ref={navRef} ><SideNavbar  bNavbarShow={bNavbarShow}></SideNavbar></div>
             <div className="mainC">
                 {history.location.state && history.location.state.CretorName && history.location.state.UniqueIdentifier && <div className="mainContainer">
                     <TypeWriterMessageContainer title="Congratulations your quiz has been created!!" msgArray={QuizUrlArray}></TypeWriterMessageContainer>

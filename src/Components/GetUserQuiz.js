@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useRef } from 'react';
 import axios from "axios";
 import { BACKEND_URL, NOTIFICATION_CLOSE_TIME, NOTIFICATION_THEME } from "../Constants/Config";
 import { CreateQuizArray } from "../Constants/Messages";
@@ -24,6 +24,19 @@ function GetUserQuiz({ match }) {
 
     const CreatorName = match.params.CreatorName;
     const QuizUniqueIdentifier = match.params.QuizUniqueIdentifier;
+    let navRef=useRef(null);
+    let handler=(event)=>{
+        if(!navRef.current.contains(event.target))
+        {
+            setbNavbarShow(false);
+        }
+    }
+    useEffect(() => {
+       document.addEventListener("scroll",handler);
+       return ()=>{
+           document.removeEventListener("scroll",handler);
+       }
+    }, [navRef])
 
     useEffect(() => {
         axios.get(`${BACKEND_URL}Quiz/GiveQuizTest/${CreatorName}/${QuizUniqueIdentifier}`).then(response => {
@@ -47,7 +60,7 @@ function GetUserQuiz({ match }) {
     return (
         <div className="QuizCls">
             <Header bNavbarShow={bNavbarShow} setbNavbarShow={setbNavbarShow} ></Header>
-            <SideNavbar bNavbarShow={bNavbarShow}></SideNavbar>
+            <div ref={navRef}><SideNavbar bNavbarShow={bNavbarShow}></SideNavbar></div>
 
             <div className="mainC">
 
@@ -177,7 +190,7 @@ function GetUserQuiz({ match }) {
 
     function renderTableHeader()
     {
-        let Headers=["RANK","NAME","SCORE","QUIZ ATTEMPT DATE"];
+        let Headers=["RANK","NAME","SCORE"];
       return Headers.map((header,index)=>{
           return <th key={index}>{header}</th>
 
@@ -191,7 +204,6 @@ function GetUserQuiz({ match }) {
                    <td>{index+1}</td>
                    <td>{usrDetails.QUIZ_SUBMITTER_NAME}</td>
                    <td>{usrDetails.QUIZ_SUBMITTER_SCORE}</td>
-                   <td>{usrDetails.QUIZ_CREATED_DATE_TIME}</td>
                   </tr>
        })
     }
