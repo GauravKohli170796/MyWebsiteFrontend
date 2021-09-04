@@ -39,10 +39,8 @@ function GetUserQuiz({ match }) {
     }, [navRef])
 
     useEffect(()=>{
-             if(CurrentQuestion+1===UserJsonQuestions.length)
+             if(CurrentQuestion===UserJsonQuestions.length)
             {
-                setCurrentQuestionAns("");
-                setCurrentQuestion(CurrentQuestion + 1);
                 axios.post(`${BACKEND_URL}Quiz/SubmitAttempterScore`,{QuizSubmitterName:QuizAttempter,QuizUniqueIdentifier:match.params.QuizUniqueIdentifier,QuizCreatorName:match.params.CreatorName,QuizSubmitterScore:CorrectQuestion})
                 .then(response => {
                     if (response.data.ErrCode === 0) {
@@ -141,27 +139,27 @@ function GetUserQuiz({ match }) {
                             setCurrentQuestionAns("");
                             setCurrentQuestion(CurrentQuestion + 1);
                         }
-                        // else if(CurrentQuestion+1===UserJsonQuestions.length)
-                        // {
-                        //     setCurrentQuestionAns("");
-                        //     setCurrentQuestion(CurrentQuestion + 1);
-                        //     axios.post(`${BACKEND_URL}Quiz/SubmitAttempterScore`,{QuizSubmitterName:QuizAttempter,QuizUniqueIdentifier:match.params.QuizUniqueIdentifier,QuizCreatorName:match.params.CreatorName,QuizSubmitterScore:CorrectQuestion})
-                        //     .then(response => {
-                        //         if (response.data.ErrCode === 0) {
-                        //             setAttemptedUserJsonArray(response.data.AttempterUsersArrayJson);
-                        //         }
-                        //         else if (response.data.ErrCode === 1) {
-                        //             toast.info(response.data.ResMsg);
-                        //         }
-                        //         else {
-                        //             toast.error(response.data.ResMsg);
-                        //         }
-                        //     })
-                        //     .catch(err => {
-                        //             toast.error(err.message);
-                        //         })
+                        else if(CurrentQuestion+1===UserJsonQuestions.length)
+                        {
+                            setCurrentQuestionAns("");
+                            setCurrentQuestion(CurrentQuestion + 1);
+                            // axios.post(`${BACKEND_URL}Quiz/SubmitAttempterScore`,{QuizSubmitterName:QuizAttempter,QuizUniqueIdentifier:match.params.QuizUniqueIdentifier,QuizCreatorName:match.params.CreatorName,QuizSubmitterScore:CorrectQuestion})
+                            // .then(response => {
+                            //     if (response.data.ErrCode === 0) {
+                            //         setAttemptedUserJsonArray(response.data.AttempterUsersArrayJson);
+                            //     }
+                            //     else if (response.data.ErrCode === 1) {
+                            //         toast.info(response.data.ResMsg);
+                            //     }
+                            //     else {
+                            //         toast.error(response.data.ResMsg);
+                            //     }
+                            // })
+                            // .catch(err => {
+                            //         toast.error(err.message);
+                            //     })
                             
-                        // }
+                        }
                      }}>
                     
                         <div className="Questionscontainer">
