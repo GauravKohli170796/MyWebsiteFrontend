@@ -39,7 +39,7 @@ function GetUserQuiz({ match }) {
     }, [navRef])
 
     useEffect(()=>{
-             if(CurrentQuestion===UserJsonQuestions.length)
+             if(CurrentQuestion && UserJsonQuestions.length>0 && (CurrentQuestion===UserJsonQuestions.length))
             {
                 axios.post(`${BACKEND_URL}Quiz/SubmitAttempterScore`,{QuizSubmitterName:QuizAttempter,QuizUniqueIdentifier:match.params.QuizUniqueIdentifier,QuizCreatorName:match.params.CreatorName,QuizSubmitterScore:CorrectQuestion})
                 .then(response => {
@@ -64,7 +64,6 @@ function GetUserQuiz({ match }) {
     useEffect(() => {
         axios.get(`${BACKEND_URL}Quiz/GiveQuizTest/${CreatorName}/${QuizUniqueIdentifier}`).then(response => {
             if (response.data.ErrCode === 0) {
-                console.log(response.data);
                 setUserJsonQuestions(response.data.UserQuestionJson);
                 setAttemptedUserJsonArray(response.data.AttemptedUserJsonArray);
             }
