@@ -226,7 +226,7 @@ function GetUserQuiz({ match }) {
            return <tr key={index}>
                    <td>{index+1}</td>
                    <td>{usrDetails.QUIZ_SUBMITTER_NAME}</td>
-                   <td>{usrDetails.QUIZ_SUBMITTER_SCORE}</td>
+                   <td>{usrDetails.QUIZ_SUBMITTER_SCORE}/{UserJsonQuestions.length}</td>
                   </tr>
        })
     }
