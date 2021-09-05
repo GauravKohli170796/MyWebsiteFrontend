@@ -10,10 +10,12 @@
 {
     display: grid;
     grid-template-columns: auto auto;
-    padding: 20px 20px;
+    padding: 20px 30px 20px 5px;
     background-color: lightgrey;
     margin: 20px 5px;
-    width: 90vw;
+    width: 85vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .horoscopeResultContainer{
@@ -42,4 +44,50 @@
   #customers th {
     border: 1px solid white;
     padding: 8px; 
+  }
+
+  .loveresult{
+    color: red;
+    animation-name: loveresult;
+    text-decoration:underline;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    position: relative;
+    margin-left:-20%;
+    animation-duration: 2s;
+  }
+
+  @keyframes loveresult {
+    from{
+      margin-left:-20%;
+    }
+  
+    to{
+      margin-left:20%;
+    }
+  
+  }
+
+
+
+  .hororesult{
+    color: red;
+    animation-name: hororesult;
+    text-decoration:underline;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    position: relative;
+    margin-left:-20%;
+    animation-duration: 2s;
+  }
+
+  @keyframes hororesult {
+    from{
+      margin-left:-4%;
+    }
+  
+    to{
+      margin-left:4%;
+    }
+  
   }

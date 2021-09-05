@@ -71,7 +71,7 @@ function TwoDaysHoroscope() {
                 </form>
             </div>
 
-            {Object.keys(HoroScopeInfo).length > 0 && <span className="rankTableHeading">Horoscope result for {Sign} sign for {Day}</span>}
+            {Object.keys(HoroScopeInfo).length > 0 && <span className="rankTableHeading hororesult">Horoscope result for {Sign} sign for {Day}</span>}
             {Object.keys(HoroScopeInfo).length > 0 && <div className="horoscopeResultContainer">
                 <table id="customers">
                     <tr>{renderResultTableHeader()}</tr>

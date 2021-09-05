@@ -5,6 +5,7 @@ import CreateYourOwnQuiz from "./Components/CreateYourOwnQuiz";
 import QuizUrl from "./Components/QuizUrl";
 import GetUserQuiz from "./Components/GetUserQuiz";
 import TwoDaysHoroscope from "./Components/TwoDaysHoroscope";
+import LoveCalculator from "./Components/LoveCalculator";
 import {Route} from 'react-router-dom'; 
 
  
@@ -19,6 +20,7 @@ function App() {
       <Route exact path='/Quiz/GetQuizUrl' component={QuizUrl}></Route> 
       <Route exact path='/Quiz/GiveQuizTest/:CreatorName/:QuizUniqueIdentifier' component={GetUserQuiz}></Route>
       <Route exact path='/Horoscope/FindHoroscopeDetails' component={TwoDaysHoroscope}></Route>
+      <Route exact path='/Horoscope/LoveCalculator' component={LoveCalculator}></Route>
       </ErrorBoundry>
 
  
