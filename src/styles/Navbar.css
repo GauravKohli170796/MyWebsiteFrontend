@@ -272,7 +272,7 @@ footer{
     animation-name: running-gif;
     animation-iteration-count: infinite;
     animation-direction: normal;
-    animation-duration: 4s;
+    animation-duration: 3s;
 }
 
 @keyframes running-gif {
@@ -281,7 +281,7 @@ footer{
     }
   
     to{
-        margin-left:-70%;
+        margin-left:-40%;
     }
   
   }
@@ -306,12 +306,12 @@ footer{
 @media only screen and (max-width: 750px) {
     .GifPlayer{
         margin: 2% 2% 2% 10%;
-        height: 50vh;
+        height: 40vh;
         width: 71vw;
     }
     .GifPlayerHome{
         margin: 2% 2% 2% 50%;
-        height: 50vh;
+        height: 40vh;
         width: 71vw;
     }
     
@@ -321,7 +321,7 @@ footer{
     }
   
     to{
-        margin-left:-70%;
+        margin-left:-40%;
     }
   
   }
