@@ -8,10 +8,17 @@ import Footer from "./Footer";
 import axios from "axios";
 import ImageCoursel from "./ImageCoursel";
 import {LoveCalculatorMessage} from "../Constants/Messages";
-console.log(LoveCalculatorMessage[1]);
+import LoveImage1 from "../images/love1.jpg";
+import LoveImage2 from "../images/love2.jpg";
+import LoveImage3 from "../images/love3.jpg";
+import LoveImage4 from "../images/love4.jpg";
+import LoveImage5 from "../images/love5.jpg";
+import Loader from "./Loader";
+import sugar from "../images/sugar.gif";
 
 function LoveCalculator() {
     const [bNavbarShow, setbNavbarShow] = useState(false);
+    const [bLoaderShow, setbLoaderShow] = useState(false);
     const [LoveInfoDetails, setLoveInfoDetails] = useState({});
     const [FirstName, setFirstName] = useState("");
     const [SecondName, setSecondName] = useState("");
@@ -28,13 +35,19 @@ function LoveCalculator() {
             document.removeEventListener("scroll", handler);
         }
     }, [navRef]);
+    const ImageArray=[LoveImage1,LoveImage2,LoveImage3,LoveImage4,LoveImage5];
 
     return (
         <div className="twoDaysHoroscopeMain">
+            <Loader bLoaderShow={bLoaderShow}></Loader>
             <Header bNavbarShow={bNavbarShow} setbNavbarShow={setbNavbarShow} ></Header>
             <div ref={navRef}><SideNavbar bNavbarShow={bNavbarShow}></SideNavbar></div>
             <div className="SliderContainer">
-                <ImageCoursel></ImageCoursel>
+                <ImageCoursel ImageArray={ImageArray}></ImageCoursel>
+            </div>
+
+            <div className="GifPlayer">
+             <img style={{height:"100%",width:"100%"}} src={sugar}></img>
             </div>
 
 
@@ -43,9 +56,9 @@ function LoveCalculator() {
             <div className="horoscopeformContainer">
                 <form onSubmit={(e) => { handleFormSubmit(e) }}>
                     <label className="lbl">Please enter first name</label>
-                    <input type="text" placeholder="e.g Deerav" onChange={(e)=>{setFirstName(e.target.value);setLoveInfoDetails({});}}></input>
-                    <label className="lbl">Please select your sign</label>
-                    <input type="text" placeholder="e.g Gaureesha" onChange={(e)=>{setSecondName(e.target.value);setLoveInfoDetails({});}}></input>
+                    <input type="text" placeholder="e.g Deerav" onChange={(e)=>{setFirstName(e.target.value);setLoveInfoDetails({});}} required></input>
+                    <label className="lbl">Please enter second name</label>
+                    <input type="text" placeholder="e.g Gaureesha" onChange={(e)=>{setSecondName(e.target.value);setLoveInfoDetails({});}} required></input>
                
                     <button type="submit" className="btnsubmit" >Find Love Details</button>
                 </form>
@@ -79,8 +92,10 @@ function LoveCalculator() {
     function handleFormSubmit(e)
     {
        e.preventDefault();
+       setbLoaderShow(true);
        axios.post(`${BACKEND_URL}Love/FindLoveDetails`, { FirstName: FirstName, SecondName: SecondName })
             .then(response => {
+                setbLoaderShow(false);
                 if (response.data.ErrCode === 0) {
                     setLoveInfoDetails(response.data.LoveInfoDetailsJson);
                     let Percentage=parseInt(response.data.LoveInfoDetailsJson.percentage);
@@ -117,6 +132,7 @@ function LoveCalculator() {
                 }
             })
             .catch(err => {
+                setbLoaderShow(false);
                 console.log(err);
 
                 toast.error(err.message);

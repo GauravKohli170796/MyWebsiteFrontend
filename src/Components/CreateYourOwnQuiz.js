@@ -12,11 +12,13 @@ import axios from "axios";
 import { ToastContainer, toast ,Zoom} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from "react-router";
+import Loader from "./Loader";
 
 
 function CreateYourOwnQuiz() {
 
     const [bNavbarShow, setbNavbarShow] = useState(false);
+    const [bLoaderShow, setbLoaderShow] = useState(false);
     const [QuizCreator, setQuizCreator] = useState("");
     const [IsAllowedToCreateQuiz, setIsAllowedToCreateQuiz] = useState(false);
     const [QuizQuestionNo,setQuizQuestionNo]=useState();
@@ -37,6 +39,7 @@ function CreateYourOwnQuiz() {
     }, [navRef])
     return (
         <div className="QuizCls">
+            <Loader bLoaderShow={bLoaderShow}></Loader>
             <Header bNavbarShow={bNavbarShow} setbNavbarShow={setbNavbarShow} ></Header>
            <div ref={navRef}><SideNavbar bNavbarShow={bNavbarShow}></SideNavbar></div> 
 
@@ -47,6 +50,7 @@ function CreateYourOwnQuiz() {
                 <div className="mainContainer">
 
                     <TypeWriterMessageContainer title="Here you can do!" msgArray={CreateQuizArray}></TypeWriterMessageContainer>
+                    {!IsAllowedToCreateQuiz && <span className="rankTableHeading">Enter your name and no. of question then you will see options to enter questions and options.</span>}
 
                     {!IsAllowedToCreateQuiz && <div className="QuizCreaterDetails">
                            <form onSubmit={() => {
@@ -70,7 +74,7 @@ function CreateYourOwnQuiz() {
 
 
                     </div>}
-                   {IsAllowedToCreateQuiz && <div className="creatorMessage">
+                   {IsAllowedToCreateQuiz && <div className="rankTableHeading">
                         <span>Hello {QuizCreator}!!  Enter {QuizQuestionNo} questions and options of your choice.</span>
                     </div>}
                    {IsAllowedToCreateQuiz && <div className="Questionscontainer">
@@ -104,7 +108,7 @@ function CreateYourOwnQuiz() {
         let tmpQuizQuestion=QuizQuestion.slice(0,QuizQuestionNo);
        return Array.isArray(tmpQuizQuestion) && tmpQuizQuestion.map((jsonQuestion,index)=>{
          return <div className="questionContainer">
-                <div className="questionNo">
+                <div className="rankTableHeading">
                 <span>Enter details of Question {index +1 }</span>
                 </div>
                 <div classname="question">
@@ -156,9 +160,11 @@ function CreateYourOwnQuiz() {
     function handleQuizQuestionsSubmit(e)
     {
        e.preventDefault();
+       setbLoaderShow(true);
        let tmpQuizQuestion=QuizQuestion.slice(0,QuizQuestionNo);
        axios.post(`${BACKEND_URL}Quiz/CreateUserQuiz`,{QuizreatorName:QuizCreator,QuizQuestionsArray:tmpQuizQuestion})
        .then(response => {
+            setbLoaderShow(false);
              if(response.data.ErrCode===0)
              {
                 toast.success(response.data.ResMsg);
@@ -174,6 +180,7 @@ function CreateYourOwnQuiz() {
              }
            })
          .catch(err=>{
+            setbLoaderShow(false);
              toast.error(err.message);
          })
    }

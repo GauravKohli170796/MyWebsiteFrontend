@@ -46,6 +46,7 @@ function QuizUrl() {
             <div className="mainC">
                 {history.location.state && history.location.state.CretorName && history.location.state.UniqueIdentifier && <div className="mainContainer">
                     <TypeWriterMessageContainer title="Congratulations your quiz has been created!!" msgArray={QuizUrlArray}></TypeWriterMessageContainer>
+                    <span className="rankTableHeading">Below is your quiz URL.You can copy it using copy button.</span>
                     <div className="quoteContainer">
                         <div className="quoteTitleurl">
                             <p>"Your Quiz URL is Ready"</p>

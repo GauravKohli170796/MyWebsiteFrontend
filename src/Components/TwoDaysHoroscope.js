@@ -8,10 +8,17 @@ import { BACKEND_URL, NOTIFICATION_CLOSE_TIME, NOTIFICATION_THEME } from "../Con
 import 'react-toastify/dist/ReactToastify.css';
 import "../styles/Horoscope.css";
 import axios from "axios";
+import Zodaic1 from "../images/Zodaic1.jpg";
+import Zodaic2 from "../images/Zodaic2.jpg";
+import Zodaic3 from "../images/Zodaic3.jpg";
+import Zodaic4 from "../images/Zodaic4.jpg";
+import Zodaic5 from "../images/Zodaic5.jpg";
+import Loader from "./Loader";
 
 
 function TwoDaysHoroscope() {
     const [bNavbarShow, setbNavbarShow] = useState(false);
+    const [bLoaderShow, setbLoaderShow] = useState(false);
     const [HoroScopeInfo, setHoroScopeInfo] = useState({});
     const [Day, setDay] = useState("");
     const [Sign, setSign] = useState("");
@@ -28,12 +35,15 @@ function TwoDaysHoroscope() {
         }
     }, [navRef]);
 
+
+    const ImageArray=[Zodaic1,Zodaic2,Zodaic3,Zodaic4,Zodaic5];
     return (
         <div className="twoDaysHoroscopeMain">
+             <Loader bLoaderShow={bLoaderShow}></Loader>
             <Header bNavbarShow={bNavbarShow} setbNavbarShow={setbNavbarShow} ></Header>
             <div ref={navRef}><SideNavbar bNavbarShow={bNavbarShow}></SideNavbar></div>
             <div className="SliderContainer">
-                <ImageCoursel></ImageCoursel>
+                <ImageCoursel ImageArray={ImageArray}></ImageCoursel>
             </div>
 
 
@@ -97,8 +107,10 @@ function TwoDaysHoroscope() {
 
     function handleFormSubmit(e) {
         e.preventDefault();
+        setbLoaderShow(true);
         axios.post(`${BACKEND_URL}Horoscope/TwoDayHoroscope`, { Day: Day, Sign: Sign })
             .then(response => {
+                setbLoaderShow(false);
                 if (response.data.ErrCode === 0) {
                     setHoroScopeInfo(response.data.HoroScopeInfoJson);
                     console.log(response.data);
@@ -111,6 +123,7 @@ function TwoDaysHoroscope() {
                 }
             })
             .catch(err => {
+                setbLoaderShow(false);
                 toast.error(err.message);
             })
 

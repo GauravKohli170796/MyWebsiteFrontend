@@ -10,9 +10,11 @@ import TypeWriterMessageContainer from "./TypeWriterMessageContainer";
 import "../styles/Navbar.css";
 import "../styles/CreateQuiz.css";
 import 'react-toastify/dist/ReactToastify.css';
+import Loader from "./Loader";
 
 function GetUserQuiz({ match }) {
     const [UserJsonQuestions, setUserJsonQuestions] = useState([]);
+    const [bLoaderShow, setbLoaderShow] = useState(true);
     const [AttemptedUserJsonArray, setAttemptedUserJsonArray] = useState([]);
     const [IsAllowedToAttemptQuiz, setIsAllowedToAttemptQuiz] = useState(false);
     const [bNavbarShow, setbNavbarShow] = useState(false);
@@ -62,7 +64,9 @@ function GetUserQuiz({ match }) {
     },[CurrentQuestion]);
 
     useEffect(() => {
-        axios.get(`${BACKEND_URL}Quiz/GiveQuizTest/${CreatorName}/${QuizUniqueIdentifier}`).then(response => {
+        axios.get(`${BACKEND_URL}Quiz/GiveQuizTest/${CreatorName}/${QuizUniqueIdentifier}`)
+        .then(response => {
+            setbLoaderShow(false);
             if (response.data.ErrCode === 0) {
                 setUserJsonQuestions(response.data.UserQuestionJson);
                 setAttemptedUserJsonArray(response.data.AttemptedUserJsonArray);
@@ -75,12 +79,14 @@ function GetUserQuiz({ match }) {
             }
         })
             .catch(err => {
+                setbLoaderShow(false);
                 toast.error(err.message);
             })
     }, [CreatorName,QuizUniqueIdentifier]);
 
     return (
         <div className="QuizCls">
+            <Loader bLoaderShow={bLoaderShow}></Loader>
             <Header bNavbarShow={bNavbarShow} setbNavbarShow={setbNavbarShow} ></Header>
             <div ref={navRef}><SideNavbar bNavbarShow={bNavbarShow}></SideNavbar></div>
 
@@ -119,10 +125,10 @@ function GetUserQuiz({ match }) {
                         </table>
                     </div>}
 
-                    {IsAllowedToAttemptQuiz && UserJsonQuestions.length > 0 && (CurrentQuestion < UserJsonQuestions.length) && <div className="creatorMessage rankMsgborder">
+                    {IsAllowedToAttemptQuiz && UserJsonQuestions.length > 0 && (CurrentQuestion < UserJsonQuestions.length) && <div className="rankTableHeading rankMsgborder">
                         <span>Hello {QuizAttempter}!!  Best of luck for your friends quiz</span>
                     </div>}
-                    {IsAllowedToAttemptQuiz && UserJsonQuestions.length > 0 && (UserJsonQuestions.length===CurrentQuestion) &&<div className="creatorMessage rankMsgborder">
+                    {IsAllowedToAttemptQuiz && UserJsonQuestions.length > 0 && (UserJsonQuestions.length===CurrentQuestion) &&<div className="rankTableHeading rankMsgborder">
                         <p className="CongoMsg">Congratulation!! You have completed the quiz</p>
                         <span>Hello {QuizAttempter}!!  Your Score is {CorrectQuestion}/{UserJsonQuestions.length} </span>
                     </div>}
