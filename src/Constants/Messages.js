@@ -1,9 +1,8 @@
 module.exports =Object.freeze({
   MessageArray:[
-      "There is never a time or place for true love. It happens accidentally, in a heartbeat, in a single flashing, throbbing moment.",
-      "There is never a time or place for true love. It happens accidentally, in a heartbeat, in a single flashing, throbbing moment.",
-      "There is never a time or place for true love. It happens accidentally, in a heartbeat, in a single flashing, throbbing moment.",
-      "There is never a time or place for true love. It happens accidentally, in a heartbeat, in a single flashing, throbbing moment.",
+      "Here you can check your today and tomorrow horoscope",
+      "Here you can chaeck your compatibility with your crush or partner",
+      "Here you can create quiz for your friends and can check how knows you better."
   ],
   CreateQuizArray:[
     "You can create your own quiz.",
