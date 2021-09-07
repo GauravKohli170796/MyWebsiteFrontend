@@ -275,6 +275,29 @@ footer{
     animation-duration: 3s;
 }
 
+.PopUpcls{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    z-index: 9990;
+    height: fit-content;
+    width: 80vw;
+    background-color: wheat;
+    padding: 5px;
+
+}
+.PopUPX{
+    position: relative;
+    justify-content: flex-start;
+    display: flex;
+
+}
+
 @keyframes running-gif {
     from{
         margin-left:70%;

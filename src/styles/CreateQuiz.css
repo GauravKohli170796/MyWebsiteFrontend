@@ -20,6 +20,32 @@
     font-size: 30px;
     flex-grow: 1;
 }
+
+.slbl{
+    padding: 0px 10px;
+    font-family: 'Dancing Script', cursive;
+    color: maroon;
+    font-size: 20px;
+    margin: 20px;
+}
+.spoplbl{
+    padding: 0px 0px;
+    font-family: 'Dancing Script', cursive;
+    color: maroon;
+    font-size: 20px;
+    margin: 0px;
+    flex-grow: 1;
+}
+.findsign
+{
+    position: relative;
+    top: -4px;
+    left: -17px;
+    justify-content:flex-end;
+    align-items:flex-end;
+    display: flex;
+    width: 100%;
+}
 input{
     width: 90%;
     height: 25px;
@@ -62,6 +88,27 @@ select{
     
 }
 
+.sbtnsubmit{
+    padding: 5px;
+    margin: 20px;
+    background-color: palevioletred;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    border-radius: 8px;
+    font-size: 15px;
+    
+}
+.popbtnsubmit{
+    padding: 5px;
+    margin: 0px;
+    color: black;
+    background-color: transparent;
+    font-family: 'Dancing Script', cursive;
+    font-size: 15px;
+    border: none;
+
+    
+}
 .MessageContainer{
     height: 33vh;
 }

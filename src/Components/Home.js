@@ -17,6 +17,7 @@ import axios from "axios";
 import { BACKEND_URL} from "../Constants/Config";
 import Loader from "./Loader";
 
+
 function Home() {
     const [bNavbarShow, setbNavbarShow] = useState(false);
     const [bLoaderShow, setbLoaderShow] = useState(true);

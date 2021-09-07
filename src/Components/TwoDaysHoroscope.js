@@ -14,10 +14,12 @@ import Zodaic3 from "../images/Zodaic3.jpg";
 import Zodaic4 from "../images/Zodaic4.jpg";
 import Zodaic5 from "../images/Zodaic5.jpg";
 import Loader from "./Loader";
+import PopUps from "./PopUps";
 
 
 function TwoDaysHoroscope() {
     const [bNavbarShow, setbNavbarShow] = useState(false);
+    const [bPopUpShow, setbPopUpShow] = useState(false);
     const [bLoaderShow, setbLoaderShow] = useState(false);
     const [HoroScopeInfo, setHoroScopeInfo] = useState({});
     const [Day, setDay] = useState("");
@@ -78,6 +80,10 @@ function TwoDaysHoroscope() {
 
                     </select>
                     <button type="submit" className="btnsubmit" >Find Horoscope</button>
+                    <div className="findsign">
+                    <div className="slbl">Don't Know Your Sign</div>
+                    <button type="button" className="sbtnsubmit" onClick={()=>{setbPopUpShow(true)}}>Find</button>
+                    </div>
                 </form>
             </div>
 
@@ -101,6 +107,7 @@ function TwoDaysHoroscope() {
                 pauseOnHover />
 
             <Footer></Footer>
+           {bPopUpShow && <PopUps bPopUpShow={bPopUpShow} setbPopUpShow={setbPopUpShow}></PopUps>}
         </div>
 
     );
