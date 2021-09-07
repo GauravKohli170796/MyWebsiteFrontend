@@ -317,6 +317,14 @@ footer{
 
 }
 
+.mainHeaderstyle{
+    background-color: transparent;
+    border: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    color:white
+}
+
 
 
 @media only screen and (max-width: 500px) {
