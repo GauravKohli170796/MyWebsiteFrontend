@@ -17,16 +17,18 @@ import Loader from "./Loader";
 import PopUps from "./PopUps";
 
 
+
 function TwoDaysHoroscope() {
     const [bNavbarShow, setbNavbarShow] = useState(false);
     const [bPopUpShow, setbPopUpShow] = useState(false);
     const [bLoaderShow, setbLoaderShow] = useState(false);
     const [HoroScopeInfo, setHoroScopeInfo] = useState({});
+ 
     const [Day, setDay] = useState("");
     const [Sign, setSign] = useState("");
     let navRef = useRef(null);
     let handler = (event) => {
-        if (!navRef.current.contains(event.target)) {
+        if (navRef.current.contains && !navRef.current.contains(event.target)) {
             setbNavbarShow(false);
         }
     }

@@ -19,7 +19,7 @@ function QuizUrl() {
     const history = useHistory({});
     let navRef=useRef(null);
     let handler=(event)=>{
-        if(!navRef.current.contains(event.target))
+        if(navRef.current.contains && !navRef.current.contains(event.target))
         {
             setbNavbarShow(false);
         }
