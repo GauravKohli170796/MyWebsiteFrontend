@@ -1,14 +1,14 @@
 module.exports =Object.freeze({
   MessageArray:[
       "Here you can check your today and tomorrow horoscope",
-      "Here you can chaeck your compatibility with your crush or partner",
-      "Here you can create quiz for your friends and can check how knows you better."
+      "Here you can check your compatibility with your crush or partner",
+      "Here you can create quiz for your friends and can check who knows you better."
   ],
   CreateQuizArray:[
     "You can create your own quiz.",
     "You can customise any no of question between 2 to 10 with your own options.",
     "You can share that quiz with your friends via url.",
-    "You can get the detailed result of your friends responses.",
+    "You can get the result of your friends responses by using same url",
     "You can know who knows you better by looking at each friend score."
   ],
   QuizUrlArray:[
